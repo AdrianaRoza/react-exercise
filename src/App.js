@@ -29,6 +29,19 @@ function App() {
     }
   }
 
+  function handleToggleTaskCompletion(id) {
+    
+    const taskComplete = tasks.map(task => {
+      if(task.id === id) {
+        return {...task, isComplete: !task.isComplete}
+      }
+      return task
+  })
+
+  setTasks(taskComplete)
+
+}
+
   return (
     <div className='app'>
 
@@ -44,11 +57,12 @@ function App() {
         </header>
 
         {tasks.map(task =>(
-          <div key={task.id} className='task-container'>
+          <div key={task.id} className={task.isComplete ? 'task-container completed' : 'task-container' }>
             <div className='check-and-title'>
 
               <label className='checkbox-container'>
-                <input type="checkbox" />
+                <input type="checkbox" 
+                onClick={()=> handleToggleTaskCompletion(task.id)}/>
 
                 <span className='checkmark'></span>
               </label>
