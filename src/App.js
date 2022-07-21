@@ -1,36 +1,68 @@
+import  { useState } from 'react';
 import './global.css'
 import './styles.css'
 import { IoMdAdd, IoIosClose } from 'react-icons/io'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
+
+  const [task, setTask] = useState("")
+
+  const [tasks, setTasks] = useState([])
+
+  function handleCreateTask() {
+    if(task === "") {
+
+      toast.error("Digite uma tarefa")
+
+    }else {
+
+      const idRandom = (num) => Math.floor(Math.random() * num)
+
+      const newTask = { id: idRandom(1204334) , title: task , isComplete: false }
+
+      setTasks([ ...tasks, newTask ])
+      setTask("")
+
+    }
+  }
+
   return (
     <div className='app'>
+
+      <ToastContainer />
+
       <div className='todo'>
         <header>
           
-          <input type="text"/>
+          <input type="text" value={task} onChange= {(ev) => setTask(ev.target.value)} />
           
-          <button><IoMdAdd/></button>
+          <button onClick={handleCreateTask} ><IoMdAdd /></button>
         
         </header>
-        
-        <div className='task-container'>
-          <div className='check-and-title'>
 
-            <label className='checkbox-container'>
-              <input type="checkbox" />
+        {tasks.map(task =>(
+          <div key={task.id} className='task-container'>
+            <div className='check-and-title'>
 
-              <span className='checkmark'></span>
-            </label>
+              <label className='checkbox-container'>
+                <input type="checkbox" />
 
-            <p>Criar abitos</p>
+                <span className='checkmark'></span>
+              </label>
 
-          </div>
+              <p>{task.title}</p>
 
-          <div>
-            <IoIosClose />
-          </div>
+            </div>
+
+            <div>
+              <IoIosClose />
+            </div>
         </div>
+        ))}
+        
       </div>
 
     </div>
