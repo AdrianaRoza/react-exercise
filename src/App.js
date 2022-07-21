@@ -1,6 +1,6 @@
 import './global.css'
 import './styles.css'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoIosClose } from 'react-icons/io'
 
 function App() {
   return (
@@ -14,8 +14,22 @@ function App() {
         
         </header>
         
-        <div className='task-conteiner'>
+        <div className='task-container'>
+          <div className='check-and-title'>
 
+            <label className='checkbox-container'>
+              <input type="checkbox" />
+
+              <span className='checkmark'></span>
+            </label>
+
+            <p>Criar abitos</p>
+
+          </div>
+
+          <div>
+            <IoIosClose />
+          </div>
         </div>
       </div>
 
