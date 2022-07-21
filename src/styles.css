@@ -1,0 +1,54 @@
+.app {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.todo {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    width: 400px;
+
+    background-color: aqua;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    border-bottom: 1px solid rgb(230,230,230);
+
+    padding-bottom: 2rem;
+}
+
+header button {
+    background-color: rgb(7, 208, 208);
+    padding: 0.6rem;
+    border-radius: 5px;
+}
+
+header button:hover {
+    filter: brightness(0.90);
+    transition: 0.4s;
+}
+
+header button svg {
+    font-size: 1.6rem;
+    color: #ffffff;
+}
+
+header input {
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    width: 300px;
+    border-radius: 5px;
+
+    font-family: Raleway;
+    font-size: 1.2rem;
+}

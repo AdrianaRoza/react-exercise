@@ -1,10 +1,25 @@
-import React from "react";
+import './global.css'
+import './styles.css'
+import { IoMdAdd } from 'react-icons/io'
 
 function App() {
   return (
-    <h1>
-      Projeto
-    </h1>
+    <div className='app'>
+      <div className='todo'>
+        <header>
+          
+          <input type="text"/>
+          
+          <button><IoMdAdd/></button>
+        
+        </header>
+        
+        <div className='task-conteiner'>
+
+        </div>
+      </div>
+
+    </div>
   );
 }
 
