@@ -42,6 +42,10 @@ function App() {
 
 }
 
+function handleDeleteTask(id) {
+  setTasks(tasks.filter(remove => remove.id !== id))
+}
+
   return (
     <div className='app'>
 
@@ -49,11 +53,11 @@ function App() {
 
       <div className='todo'>
         <header>
-          
-          <input type="text" value={task} onChange= {(ev) => setTask(ev.target.value)} />
-          
-          <button onClick={handleCreateTask} ><IoMdAdd /></button>
-        
+          <h1>Lista</h1>
+          <div>
+            <input type="text" value={task} onChange= {(ev) => setTask(ev.target.value)} />
+            <button onClick={handleCreateTask} ><IoMdAdd /></button>
+          </div>
         </header>
 
         {tasks.map(task =>(
@@ -72,7 +76,7 @@ function App() {
             </div>
 
             <div>
-              <IoIosClose />
+              <IoIosClose onClick={() => handleDeleteTask(task.id)} />
             </div>
         </div>
         ))}
